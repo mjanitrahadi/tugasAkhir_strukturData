@@ -1,0 +1,504 @@
+import java.util.Scanner;
+
+class pengelolaanData { // bagian deklarasi struktur record -----
+    String judul_buku;
+    String pengarang_buku;
+    String penerbit_buku;
+    int tahun_terbitBuku;
+    int harga_buku;
+}
+
+class mawardi_buku {
+    public static int N = 4;
+
+    // --------------------------------------------------
+    // --- Fungsi untuk mengentri data ke dalam Larik ---
+    // --------------------------------------------------
+    public static void memasukkanData(pengelolaanData dataBuku[]) {
+        // bagian entri data ke dalam struktur larik ---------
+        Scanner masukan = new Scanner(System.in);
+        int bacaTombol = 0;
+
+        for (int i = 0; i <= N - 1; i++) {
+            System.out.print("Silakan masukkan judul bukunya : ");
+            dataBuku[i].judul_buku = masukan.next();
+
+            System.out.print("Silakan masukkan nama pengarangnya : ");
+            dataBuku[i].pengarang_buku = masukan.next();
+
+            System.out.print("Silakan masukkan nama penerbitnya : ");
+            dataBuku[i].penerbit_buku = masukan.next();
+
+            System.out.print("Silakan masukkan tahun terbit bukunya : ");
+            dataBuku[i].tahun_terbitBuku = masukan.nextInt();
+
+            System.out.print("Silakan masukkan harga bukunya : ");
+            dataBuku[i].harga_buku = masukan.nextInt();
+
+            System.out.println("");
+        }
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk Menambah Data Di Depan ---
+    // --------------------------------------------------
+    public static void menambahDataDiDepan(pengelolaanData dataBuku[]) {
+        // bagian membuat record sementara untuk menampung data baru-------------
+        pengelolaanData dataBukuBaru = new pengelolaanData();
+
+        // bagian entri data baru ke penyimpan sementara-----------------------
+        Scanner masukan = new Scanner(System.in);
+        int bacaTombol = 0;
+
+        System.out.print("Silakan masukkan judul bukunya : ");
+        dataBukuBaru.judul_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama pengarang bukunya : ");
+        dataBukuBaru.pengarang_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama penerbit bukunya : ");
+        dataBukuBaru.penerbit_buku = masukan.next();
+
+        System.out.print("Silakan masukkan tahun terbit bukunya : ");
+        dataBukuBaru.tahun_terbitBuku = masukan.nextInt();
+
+        System.out.print("Silakan masukkan harga bukunya : ");
+        dataBukuBaru.harga_buku = masukan.nextInt();
+
+        System.out.println("");
+
+        // bagian menggeser isi larik mulai dari Belakang s/d 0 selangkah ke bawah
+        for (int i = N - 1; i >= 0; i--) {
+            dataBuku[i + 1] = dataBuku[i];
+        }
+        // bagian memindahkan data baru ke larik ke-0-----------------------
+        dataBuku[0] = dataBukuBaru;
+        // memperbaharui banyaknya data (N), banyaknya data bertambah satu------
+        N++;
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk Menambah Data Di Tengah ---
+    // --------------------------------------------------
+    public static void menambahDataDiTengah(pengelolaanData dataBuku[]) {
+        // bagian membuat record sementara untuk menampung data baru-----------
+        pengelolaanData dataBukuBaru = new pengelolaanData();
+
+        // bagian entri data baru ke penyimpan sementara-----------------------
+        Scanner masukan = new Scanner(System.in);
+        int bacaTombol = 0;
+
+        System.out.print("Silakan masukkan judul bukunya : ");
+        dataBukuBaru.judul_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama pengarang bukunya : ");
+        dataBukuBaru.pengarang_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama penerbit bukunya : ");
+        dataBukuBaru.penerbit_buku = masukan.next();
+
+        System.out.print("Silakan masukkan tahun terbit bukunya : ");
+        dataBukuBaru.tahun_terbitBuku = masukan.nextInt();
+
+        System.out.print("Silakan masukkan harga bukunya : ");
+        dataBukuBaru.harga_buku = masukan.nextInt();
+
+        System.out.println("");
+
+        // bagian menentukan posisi target T ----------------------------------
+        int T;
+        System.out.print("Silahkan select posisi ke berapa data buku yang akan dimasukkan : ");
+        T = masukan.nextInt();
+        // bagian menggeser isi larik mulai dari Belakang s/d T selangkah ke belakang
+        for (int i = N - 1; i >= T; i--) {
+            dataBuku[i + 1] = dataBuku[i];
+        }
+        // bagian memindahkan data baru ke larik ke-T----------------------
+        dataBuku[T] = dataBukuBaru;
+        // memperbaharui banyaknya data (N), banyaknya data bertambah satu-------
+        N++;
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk Menambah Data Di Belakang ---
+    // --------------------------------------------------
+    public static void menambahDataDiBelakang(pengelolaanData dataBuku[]) {
+        // bagian membuat record sementara untuk menampung data baru-------------
+        pengelolaanData dataBukuBaru = new pengelolaanData();
+        // bagian entri data baru ke penyimpan sementara-----------------------
+        Scanner masukan = new Scanner(System.in);
+        int bacaTombol = 0;
+        System.out.print("Silakan masukkan judul bukunya : ");
+        dataBukuBaru.judul_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama pengarang bukunya : ");
+        dataBukuBaru.pengarang_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama penerbit bukunya : ");
+        dataBukuBaru.penerbit_buku = masukan.next();
+
+        System.out.print("Silakan masukkan tahun terbit bukunya : ");
+        dataBukuBaru.tahun_terbitBuku = masukan.nextInt();
+
+        System.out.print("Silakan masukkan harga bukunya : ");
+        dataBukuBaru.harga_buku = masukan.nextInt();
+
+        System.out.println("");
+
+        // bagian memindahkan data baru ke larik ke-N-----------------------
+        dataBuku[N] = dataBukuBaru;
+        // memperbaharui banyaknya data (N), banyaknya data bertambah satu----
+        N++;
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk Menghapus Data Di Depan ---
+    // --------------------------------------------------
+    public static void menghapusDataDiDepan(pengelolaanData dataBuku[]) {
+        // bagian menggeser isi larik mulai dari 0 - Belakang selangkah ke depan
+        for (int i = 0; i <= N - 2; i++) {
+            dataBuku[i] = dataBuku[i + 1];
+        }
+        System.out.println("Oke! proses menghapus data buku ke - 0 selesai");
+        // memperbaharui banyaknya data (N), banyaknya data berkurang satu-------
+        N--;
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk Menghapus Data Di Tengah ---
+    // --------------------------------------------------
+    public static void menghapusDataDiTengah(pengelolaanData dataBuku[]) {
+        // bagian menentukan posisi target T --------------------------------------
+        Scanner masukan = new Scanner(System.in);
+        int T;
+        System.out.print("Silahkan select posisi data buku yang akan dihapus : ");
+        T = masukan.nextInt();
+        // bagian menggeser isi larik mulai dari T - Belakang selangkah ke depan
+        for (int i = T; i <= N - 2; i++) {
+            dataBuku[i] = dataBuku[i + 1];
+        }
+        System.out.println("Oke! proses menghapus data buku ke - " + T + " selesai");
+        // memperbaharui banyaknya data (N), banyaknya data berkurang satu-------
+        N--;
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk Menghapus Data Di Belakang ---
+    // --------------------------------------------------
+    public static void menghapusDataDiBelakang(pengelolaanData dataBuku[]) {
+        System.out.println("Oke! proses menghapus data buku paling akhir selesai");
+        // memperbaharui banyaknya data (N), banyaknya data berkurang satu-------
+        N--;
+    }
+
+    // --------------------------------------------------------------------
+    // --- Fungsi untuk Mencari Data Secara Linear Search (Loop: While)---
+    // --------------------------------------------------------------------
+    public static void mencariDataLinearWhile(pengelolaanData dataBuku[]) {
+        Scanner masukan = new Scanner(System.in);
+        // bagian memasukkan kata kunci ------------------------------------------
+        System.out.print("Silakan masukkan judul buku yang dicari :");
+        String kataKunci = masukan.next();
+        boolean statusKetemu = false;
+        int lokasiKetemu = -1;
+        // bagian mencari data satu persatu urut dari larik terdepan
+        int i = 0;
+        while ((i <= N - 1) && (statusKetemu == false)) {
+            // mencocokkan dataBuku[i].judul_buku == kataKunci
+            if (kataKunci.equals(dataBuku[i].judul_buku)) {
+                statusKetemu = true;
+                lokasiKetemu = i;
+            }
+            i++;
+        }
+        System.out.println("Status buku ditemukan : " + statusKetemu + " di posisi ke " + lokasiKetemu);
+    }
+
+    // ------------------------------------------------------------------
+    // --- Fungsi untuk Mencari Data Secara Linear Search (Loop: For) ---
+    // ------------------------------------------------------------------
+    public static void mencariDataLinearFor(pengelolaanData dataBuku[]) {
+        String kataKunci;
+        int lokasi = -1;
+        boolean statusKetemu = false;
+        // bagian memasukkan kata kunci ------------------------------------------
+        Scanner masukan = new Scanner(System.in);
+        System.out.print("Silahkan masukkan judul buku yang dicari : ");
+        kataKunci = masukan.next();
+        // bagian mencari data satu persatu urut dari larik terdepan
+        for (int i = 0; i <= N - 1; i++) {
+            // mencocokkan dataBuku[i].judul_buku == kataKunci
+            if (dataBuku[i].judul_buku.equals(kataKunci)) {
+                statusKetemu = true;
+                lokasi = i;
+                break;
+            }
+        }
+        if (statusKetemu == true) {
+            System.out.println("Data buku yang dicari ditemukan di larik ke - : " + lokasi);
+        } else {
+            System.out.println("Mohon maaf, sayangnya buku yang dicari tidak ditemukan");
+        }
+    }
+
+    // ------------------------------------------------------
+    // --- Fungsi untuk Mencari Data Secara Binary Search ---
+    // ------------------------------------------------------
+    public static void mencariDataBiner(pengelolaanData dataBuku[]) {
+        String kataKunci;
+        int lokasi = -1;
+        boolean statusKetemu = false;
+        // bagian memasukkan kata kunci ------------------------------------------
+        Scanner masukan = new Scanner(System.in);
+        System.out.print("Silahkan masukkan judul buku yang dicari : ");
+        kataKunci = masukan.next();
+        // bagian mencari data satu persatu urut dari larik terdepan
+        int atas, bawah, tengah;
+        atas = 0;
+        bawah = N - 1;
+        tengah = (atas + bawah) / 2;
+        while ((statusKetemu == false) && (bawah - atas != 1)) {
+            System.out.println(dataBuku[tengah].judul_buku + " <---> " + kataKunci);
+            // jika kataKunci < dataBuku[tengah].judul_buka)
+            if (kataKunci.compareTo(dataBuku[tengah].judul_buku) < 0) {
+                bawah = tengah;
+                tengah = (atas + bawah) / 2;
+            }
+            // jika kataKunci > dataBuku[tengah].judul_buku)
+            else if (kataKunci.compareTo(dataBuku[tengah].judul_buku) > 0) {
+                atas = tengah;
+                tengah = (atas + bawah) / 2;
+            } else {
+                statusKetemu = true;
+                lokasi = tengah;
+            }
+        }
+        if (statusKetemu == true) {
+            System.out.println("Data buku yang dicari ditemukan di larik ke - : " + lokasi);
+        } else {
+            System.out.println("Mohon maaf, sayangnya buku yang dicari tidak ditemukan ");
+        }
+    }
+
+    // ------------------------------------------------------
+    // --- Fungsi untuk Mengurutkan Data (BubbleSort) ---
+    // ------------------------------------------------------
+    public static void mengurutkanDataBubble(pengelolaanData dataBuku[]) {
+        pengelolaanData dataBukuSementara = new pengelolaanData();
+        int indeksTerakhir = N - 1;
+        for (int j = 0; j <= indeksTerakhir - 1; j++) {
+            for (int i = 0; i <= indeksTerakhir - 1 - j; i++) {
+                // perintah dibawah ini identik dengan if (judul_buku[i]>judul_buku[i+1])
+                if (dataBuku[i].judul_buku.compareTo(dataBuku[i + 1].judul_buku) > 0) {
+                    dataBukuSementara = dataBuku[i];
+                    dataBuku[i] = dataBuku[i + 1];
+                    dataBuku[i + 1] = dataBukuSementara;
+                }
+            }
+        }
+    }
+
+    // ------------------------------------------------------
+    // --- Fungsi untuk Mengurutkan Data (Selection) ---
+    // ------------------------------------------------------
+    public static void mengurutkanDataSelection(pengelolaanData dataBuku[]) {
+        pengelolaanData dataBukuSementara = new pengelolaanData();
+        String teksTerkecil = "";
+        int lokasi = 0;
+        // bagian mengurutkan dengan teknik selection
+        for (int i = 0; i <= N - 2; i++) {
+            // data pertama yang dibaca dianggap data terkecil
+            teksTerkecil = "mawardi";
+            // menentukan bilangan terkecil mulai larik ke i+1 sampai N-1
+            for (int S = i + 1; S <= N - 1; S++) {
+                if (dataBuku[S].judul_buku.compareTo(teksTerkecil) < 0) { // jika data[S] adalah bilangan terkecil,
+                                                                          // simpan di teksTerkecil
+                    teksTerkecil = dataBuku[S].judul_buku;
+                    // mencatat posisi dimana data terkecil ada
+                    lokasi = S;
+                }
+            }
+            // membandingkan data[lokasi] yang adalah data terkecil,
+            // versus data[i] yang adalah ‘diagonal ke-i'
+            if (dataBuku[i].judul_buku.compareTo(dataBuku[lokasi].judul_buku) > 0) {
+                // tukar posisi
+                {
+                    dataBukuSementara = dataBuku[i];
+                    dataBuku[i] = dataBuku[lokasi];
+                    dataBuku[lokasi] = dataBukuSementara;
+                }
+            }
+        }
+    }
+
+    // ------------------------------------------------------
+    // --- Fungsi untuk Mengurutkan Data (Insertion) ---
+    // ------------------------------------------------------
+    public static void mengurutkanDataInsertion(pengelolaanData dataBuku[]) {
+        pengelolaanData dataBukuSementara = new pengelolaanData();
+        // untuk menentukan awal dari data sisi kanan (sisi yg masih berantakan)
+        int awal;
+        // untuk mencari posisi yg tepat pada sisi kiri (sisi yg sudah berurutan)
+        int cari;
+        awal = 1;
+        while (awal <= N - 1) {
+            dataBukuSementara = dataBuku[awal];
+            cari = awal - 1;
+            // cari akan bergerak dari kanan (awal-1) ke kiri
+            while (cari >= 0) {
+                // ( dataBuku[cari].judul_buku > dataBukuSementara.judul_buku )
+                if (dataBuku[cari].judul_buku.compareTo(dataBukuSementara.judul_buku) > 0) {
+                    dataBuku[cari + 1] = dataBuku[cari];
+                    dataBuku[cari] = dataBukuSementara;
+                    cari--; // cari digeser kekiri 1 langkah
+                } else {
+                    dataBuku[cari + 1] = dataBukuSementara;
+                    // perintah ini untuk keluar dari loop while
+                    cari = -1;
+                }
+            }
+            awal++;
+        }
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk Mengedit Data ---
+    // --------------------------------------------------
+    public static void mengeditData(pengelolaanData dataBuku[]) {
+        // bagian membuat record sementara untuk menampung data baru-------------
+        pengelolaanData dataBukuBaru = new pengelolaanData();
+        // bagian entri data baru ke penyimpan sementara-----------------------
+        Scanner masukan = new Scanner(System.in);
+        int z;
+        System.out.print("Silahkan masukkan data buku ke berapa yang akan diedit : ");
+        z = masukan.nextInt();
+        N--;
+        int bacaTombol = 0;
+
+        System.out.print("Silakan masukkan judul bukunya : ");
+        dataBukuBaru.judul_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama pengarang bukunya : ");
+        dataBukuBaru.pengarang_buku = masukan.next();
+
+        System.out.print("Silakan masukkan nama penerbit bukunya : ");
+        dataBukuBaru.penerbit_buku = masukan.next();
+
+        System.out.print("Silakan masukkan tahun terbit bukunya : ");
+        dataBukuBaru.tahun_terbitBuku = masukan.nextInt();
+
+        System.out.print("Silakan masukkan harga bukunya : ");
+        dataBukuBaru.harga_buku = masukan.nextInt();
+
+        System.out.println("");
+        // bagian memindahkan data baru ke larik ke-N-----------------------
+        dataBuku[N] = dataBukuBaru;
+        // memperbaharui banyaknya data (N), banyaknya data bertambah satu----
+        N++;
+    }
+
+    // --------------------------------------------------
+    // --- Fungsi untuk menampilkan data ---
+    // --------------------------------------------------
+    public static void menampilkanData(pengelolaanData dataBuku[]) {
+        // bagian menampilkan isi struktur Larik -------
+        System.out.println("---------------------------------------------");
+        System.out.println("JUDUL PENGARANG PENERBIT TAHUN HARGA");
+        System.out.println("---------------------------------------------");
+        for (int i = 0; i <= N - 1; i++) {
+            System.out.print(dataBuku[i].judul_buku + " ");
+            System.out.print(dataBuku[i].pengarang_buku + " ");
+            System.out.print(dataBuku[i].penerbit_buku + " ");
+            System.out.print(dataBuku[i].tahun_terbitBuku + " ");
+            System.out.println(dataBuku[i].harga_buku + " ");
+        }
+        System.out.println("-----------------------------------------------");
+    }
+
+    public static void menuUtama() {
+        pengelolaanData dataBuku[] = new pengelolaanData[10];
+        dataBuku[0] = new pengelolaanData();
+        dataBuku[1] = new pengelolaanData();
+        dataBuku[2] = new pengelolaanData();
+        dataBuku[3] = new pengelolaanData();
+        dataBuku[4] = new pengelolaanData();
+        dataBuku[5] = new pengelolaanData();
+        dataBuku[6] = new pengelolaanData();
+        dataBuku[7] = new pengelolaanData();
+        dataBuku[8] = new pengelolaanData();
+        dataBuku[9] = new pengelolaanData();
+        while (true) {
+
+            Scanner input = new Scanner(System.in);
+
+            System.out.println("Pengelolaan data buku di perpustakaan");
+            System.out.println(
+                    " 1. Memasukkan data buku \n 2. Menampilkan data buku \n 3. Menambah data buku di posisi depan \n 4. Menambah data buku di posisi tengah \n 5. Menambah data buku di posisi belakang \n");
+            System.out.println(
+                    " 6. Menghapus data buku di posisi depan \n 7. Menghapus data buku di posisi tengah \n 8. Menghapus data buku di posisi belakang \n 9. Mencari data buku secara linear search : (Loop : While) \n 10. Mencari data buku secara linear search : (Loop : For) \n");
+            System.out.println(
+                    " 11. Mencari data buku secara biner \n 12. Mengurutkan data buku secara bubble \n 13. Mengurutkan data buku secara selection \n 14. Mengurutkan data buku secara insertion \n 15. Mengedit data buku \n 16. Keluar \n");
+            System.out.print("Masukkan pilihan : ");
+
+            int select = input.nextInt();
+
+            switch (select) {
+                case (1):
+                    memasukkanData(dataBuku);
+                    break;
+                case (2):
+                    menampilkanData(dataBuku);
+                    break;
+                case (3):
+                    menambahDataDiDepan(dataBuku);
+                    break;
+                case (4):
+                    menambahDataDiTengah(dataBuku);
+                    break;
+                case (5):
+                    menambahDataDiBelakang(dataBuku);
+                    break;
+                case (6):
+                    menghapusDataDiDepan(dataBuku);
+                    break;
+                case (7):
+                    menghapusDataDiTengah(dataBuku);
+                    break;
+                case (8):
+                    menghapusDataDiBelakang(dataBuku);
+                    break;
+                case (9):
+                    mencariDataLinearWhile(dataBuku);
+                    break;
+                case (10):
+                    mencariDataLinearFor(dataBuku);
+                    break;
+                case (11):
+                    mencariDataBiner(dataBuku);
+                    break;
+                case (12):
+                    mengurutkanDataBubble(dataBuku);
+                    break;
+                case (13):
+                    mengurutkanDataSelection(dataBuku);
+                    break;
+                case (14):
+                    mengurutkanDataInsertion(dataBuku);
+                    break;
+                case (15):
+                    mengeditData(dataBuku);
+                    break;
+                case (16):
+                    return;
+                default:
+                    break;
+
+            }
+
+        }
+    }
+
+    public static void main(String[] args) {
+        menuUtama();
+    }
+}
